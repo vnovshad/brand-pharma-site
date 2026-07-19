@@ -1,0 +1,436 @@
+/* Peptide Store Core — compliance styles. Neutral defaults; restyle to brand. */
+
+/* ── Newsletter signup form ──────────────────────────────────────────────── */
+.psc-signup {
+	padding: 2.5rem 1.5rem;
+	background: #f0f9ff;
+	border-top: 3px solid #0891b2;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.psc-signup--dark {
+	background: #0f172a;
+	border-top: 3px solid #0891b2;
+	color: #cbd5e1;
+}
+
+.psc-signup__inner {
+	max-width: 760px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	flex-wrap: wrap;
+}
+
+.psc-signup__copy { flex: 1 1 260px; }
+
+.psc-signup__title {
+	font-size: 1.2rem;
+	font-weight: 700;
+	margin: 0 0 0.4rem;
+	color: #0c4a6e;
+	line-height: 1.2;
+}
+.psc-signup--dark .psc-signup__title { color: #e2e8f0; }
+
+.psc-signup__desc {
+	font-size: 0.9rem;
+	color: #475569;
+	margin: 0;
+	line-height: 1.55;
+}
+.psc-signup--dark .psc-signup__desc { color: #94a3b8; }
+
+.psc-signup__form { flex: 1 1 360px; }
+
+.psc-signup__fields {
+	display: flex;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+	margin-bottom: 0.5rem;
+}
+
+.psc-signup__input {
+	flex: 1 1 0;
+	min-width: 0;
+	border: 1.5px solid #cbd5e1;
+	border-radius: 6px;
+	padding: 0.6rem 0.85rem;
+	font-size: 0.95rem;
+	font-family: inherit;
+	background: #fff;
+	color: #111827;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.psc-signup__input:focus {
+	border-color: #0891b2;
+	box-shadow: 0 0 0 3px rgba(8,145,178,0.12);
+	outline: none;
+}
+.psc-signup__input--name { flex-basis: 38%; }
+
+/* Honeypot — visually hidden but not display:none (screen-reader accessible) */
+.psc-signup__hp {
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.psc-signup__btn {
+	background: #0891b2;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	padding: 0.6rem 1.35rem;
+	font-size: 0.95rem;
+	font-weight: 600;
+	font-family: inherit;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: background 0.15s ease, transform 0.15s ease;
+}
+.psc-signup__btn:hover   { background: #0e7490; transform: translateY(-1px); }
+.psc-signup__btn:active  { transform: translateY(0); }
+.psc-signup__btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.psc-signup__status {
+	font-size: 0.85rem;
+	min-height: 1.2em;
+	line-height: 1.4;
+}
+.psc-signup__status--success { color: #059669; }
+.psc-signup__status--error   { color: #dc2626; }
+
+.psc-signup__legal {
+	font-size: 0.75rem;
+	color: #94a3b8;
+	margin: 0.4rem 0 0;
+	font-style: italic;
+}
+
+/* Compact variant (no title/desc row) */
+.psc-signup--compact .psc-signup__inner { display: block; }
+
+/* Responsive */
+@media ( max-width: 600px ) {
+	.psc-signup__inner  { flex-direction: column; gap: 1rem; }
+	.psc-signup__fields { flex-direction: column; }
+	.psc-signup__input,
+	.psc-signup__btn    { width: 100%; }
+}
+
+/* ── FAQ accordion ───────────────────────────────────────────────────────── */
+.psc-faqs {
+	border-top: 2px solid #e2e8f0;
+	margin: 1.5rem 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.psc-faq {
+	border-bottom: 1px solid #e2e8f0;
+}
+
+.psc-faq__question {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1.1rem 0;
+	cursor: pointer;
+	font-size: 1rem;
+	font-weight: 600;
+	color: #111827;
+	line-height: 1.4;
+	list-style: none;        /* Firefox */
+	user-select: none;
+}
+/* Chrome/Safari strip the default triangle */
+.psc-faq__question::-webkit-details-marker { display: none; }
+
+.psc-faq__question:hover { color: #0891b2; }
+
+/* +/− icon */
+.psc-faq__icon {
+	flex-shrink: 0;
+	width: 22px;
+	height: 22px;
+	border: 1.5px solid #d1d5db;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.1rem;
+	line-height: 1;
+	color: #6b7280;
+	transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.2s ease;
+	position: relative;
+}
+/* Horizontal bar */
+.psc-faq__icon::before {
+	content: '';
+	position: absolute;
+	width: 10px; height: 1.5px;
+	background: currentColor;
+	border-radius: 1px;
+}
+/* Vertical bar (hidden when open) */
+.psc-faq__icon::after {
+	content: '';
+	position: absolute;
+	width: 1.5px; height: 10px;
+	background: currentColor;
+	border-radius: 1px;
+	transition: transform 0.2s ease, opacity 0.15s ease;
+}
+
+.psc-faq[open] .psc-faq__icon {
+	background: #0891b2;
+	border-color: #0891b2;
+	color: #fff;
+}
+.psc-faq[open] .psc-faq__icon::after {
+	transform: rotate(90deg);
+	opacity: 0;
+}
+
+.psc-faq__answer {
+	padding: 0 0 1.25rem 0;
+	color: #374151;
+	font-size: 0.95rem;
+	line-height: 1.75;
+}
+
+.psc-faq__answer p {
+	margin: 0 0 0.75rem;
+}
+.psc-faq__answer p:last-child { margin-bottom: 0; }
+
+/* ── End FAQ accordion ───────────────────────────────────────────────────── */
+.peptidestore-ruo-notice {
+	margin: 0 0 1rem; padding: 0.6rem 1rem; font-size: 0.85rem; line-height: 1.4;
+	text-align: center; background: #f4f4f5; border: 1px solid #e4e4e7;
+	border-radius: 6px; color: #3f3f46;
+}
+.peptidestore-disclaimer { margin-top: 0.75rem; font-size: 0.8rem; font-style: italic; color: #52525b; }
+.peptidestore-age-gate {
+	position: fixed; inset: 0; z-index: 9999; display: flex;
+	align-items: center; justify-content: center; background: rgba(0,0,0,0.6);
+}
+.peptidestore-age-gate[hidden] { display: none; }
+.peptidestore-age-gate__panel {
+	max-width: 420px; margin: 1rem; padding: 1.75rem; background: #fff;
+	border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.25); text-align: center;
+}
+.peptidestore-age-gate__panel h2 { margin-top: 0; font-size: 1.25rem; }
+.peptidestore-age-gate__panel button {
+	margin-top: 0.5rem; padding: 0.65rem 1.5rem; font-size: 1rem; cursor: pointer;
+	border: 0; border-radius: 6px; background: #6108ce; color: #fff;
+}
+.peptidestore-age-gate__panel button:hover { opacity: 0.92; }
+
+/* ── Peptide Dosage Calculator ───────────────────────────────────────────── */
+.psc-calc {
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	padding: 1.75rem;
+	max-width: 760px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.psc-calc-editor-placeholder {
+	border: 2px dashed #cbd5e1;
+	border-radius: 6px;
+	padding: 1rem;
+	color: #64748b;
+	font-size: 0.9rem;
+}
+
+/* ── Input field rows ─────────────────────────────────────────────────────── */
+.psc-calc__fields { margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+
+.psc-calc__row    { display: grid; gap: 1rem; }
+.psc-calc__row--2 { grid-template-columns: 1fr 1fr; }
+.psc-calc__row--3 { grid-template-columns: 1fr 1fr 1fr; }
+
+.psc-calc__field  { display: flex; flex-direction: column; gap: 0.3rem; }
+
+.psc-calc__label {
+	font-size: 0.85rem;
+	font-weight: 600;
+	color: #1a2332;
+}
+
+.psc-calc__input {
+	width: 100%;
+	border: 1.5px solid #cbd5e1;
+	border-radius: 6px;
+	padding: 0.6rem 0.8rem;
+	font-size: 0.95rem;
+	font-family: inherit;
+	color: #1a2332;
+	background: #fff;
+	box-sizing: border-box;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+	-moz-appearance: textfield;
+}
+.psc-calc__input::-webkit-outer-spin-button,
+.psc-calc__input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.psc-calc__input:focus {
+	border-color: #336aad;
+	box-shadow: 0 0 0 3px rgba(51,106,173,0.12);
+	outline: none;
+}
+.psc-calc__input::placeholder { color: #9ca3af; }
+
+.psc-calc__hint {
+	font-size: 0.75rem;
+	color: #6b7280;
+	line-height: 1.4;
+}
+
+/* ── Result card — neutral grey ──────────────────────────────────────────── */
+.psc-calc__result {
+	background: #f7f8fa;
+	border: 1px solid #e2e8f0;
+	border-radius: 10px;
+	padding: 1.25rem 1.5rem;
+	margin-bottom: 0.75rem;
+}
+.psc-calc__result[data-state="error"] {
+	background: #fff5f5;
+	border-color: #fca5a5;
+}
+
+.psc-calc__your-dosage {
+	font-size: 1rem;
+	font-weight: 700;
+	color: #1a2332;
+	margin: 0 0 0.5rem;
+}
+
+.psc-calc__draw-line {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: #1a2332;
+	margin: 0 0 1rem;
+}
+.psc-calc__result[data-state="error"] .psc-calc__draw-line { color: #991b1b; }
+
+/* SVG syringe inside result card */
+.psc-calc__syringe-wrap { margin-bottom: 1rem; overflow: hidden; }
+
+/* Numbered instructions */
+.psc-calc__instructions { margin-top: 0.75rem; }
+
+.psc-calc__instr-label {
+	font-size: 0.85rem;
+	font-weight: 600;
+	color: #1a2332;
+	margin: 0 0 0.4rem;
+}
+
+.psc-calc__instr-list {
+	margin: 0;
+	padding-left: 1.25rem;
+	color: #374151;
+	font-size: 0.88rem;
+	line-height: 1.7;
+}
+
+.psc-calc__disclaimer {
+	font-size: 0.74rem;
+	color: #9ca3af;
+	font-style: italic;
+	margin: 0.5rem 0 0;
+	line-height: 1.5;
+}
+
+/* Responsive */
+@media ( max-width: 640px ) {
+	.psc-calc { padding: 1.25rem; }
+	.psc-calc__row--2,
+	.psc-calc__row--3 { grid-template-columns: 1fr; }
+}
+
+/* ── COA inline embed ────────────────────────────────────────────────────── */
+.psc-coa-section {
+	margin-top: 2.5rem;
+	padding-top: 2rem;
+	border-top: 1px solid #e2e8f0;
+}
+.psc-coa-heading {
+	font-size: 1.05rem;
+	font-weight: 600;
+	margin: 0 0 1rem;
+}
+/* Image COA (JPEG / PNG screenshots) */
+.psc-coa-image {
+	display: block;
+	width: 100%;
+	max-width: 900px;
+	height: auto;
+	border: 1px solid #e2e8f0;
+	border-radius: 6px;
+}
+/* PDF COA fallback — intrinsic-ratio iframe */
+.psc-coa-wrapper {
+	position: relative;
+	width: 100%;
+	padding-bottom: 129.4%; /* A4 1 : 1.2941 */
+	height: 0;
+	overflow: hidden;
+	border: 1px solid #e2e8f0;
+	border-radius: 6px;
+	background: #f8fafc;
+}
+.psc-coa-frame {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	border: none;
+}
+
+/* ── Reconstitution guide (below the dosage calculator) ──────────────────── */
+.psc-recon-guide {
+	margin-top: 1.75rem;
+	padding: 1.5rem 1.75rem;
+	background: #F4F7FB;
+	border: 1px solid #D9E4F0;
+	border-radius: 12px;
+}
+.psc-recon-guide__title {
+	margin: 0 0 0.5rem;
+	font-size: 1.15rem;
+	font-weight: 700;
+	color: #1A2332;
+}
+.psc-recon-guide__intro {
+	margin: 0 0 1rem;
+	font-size: 0.95rem;
+	line-height: 1.6;
+	color: #3A4A5C;
+}
+.psc-recon-guide__steps {
+	margin: 0 0 1rem;
+	padding-left: 1.3rem;
+	display: grid;
+	gap: 0.55rem;
+}
+.psc-recon-guide__steps li {
+	font-size: 0.95rem;
+	line-height: 1.55;
+	color: #1A2332;
+}
+.psc-recon-guide__note {
+	margin: 0;
+	font-size: 0.8rem;
+	font-style: italic;
+	color: #6B7280;
+}

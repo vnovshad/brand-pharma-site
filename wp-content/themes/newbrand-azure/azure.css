@@ -1,0 +1,375 @@
+/* ============================================================================
+   NewBrand Azure — COMPONENTS (V4 Banded Azure). References tokens.css only.
+   Order: base · chrome (announcement/header/footer) · buttons · homepage ·
+   WooCommerce (shop/product/cart/checkout).
+   ========================================================================== */
+
+/* ---------------------------------------------------------------- base ---- */
+body,
+body.woocommerce,
+.botiga-woocommerce {
+  background: var(--bg-page);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+}
+body a { color: inherit; }
+h1, h2, h3, h4, .entry-title, .site-title,
+.woocommerce-loop-product__title,
+.product_title, .woocommerce-Tabs-panel h2 {
+  font-family: var(--font-sans);
+  color: var(--text);
+  letter-spacing: var(--ls-tight);
+  font-weight: var(--fw-bold);
+}
+p { color: var(--text); }
+.nb-wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.nb-eyebrow {
+  font-size: var(--fs-eyebrow); font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--brand);
+}
+
+/* ------------------------------------------------- announcement (tagbar) -- */
+.nb-ann {
+  background: var(--bg-ink); color: #fff; overflow: hidden; white-space: nowrap;
+  font-family: var(--font-mono); font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono); padding: 8px 0; border: 0;
+}
+.nb-ann__track { display: inline-flex; will-change: transform; animation: nb-marquee 32s linear infinite; }
+.nb-ann__group { display: inline-flex; align-items: center; }
+.nb-ann__item { padding: 0 14px; color: #E2ECFF; }
+.nb-ann__sep { color: var(--brand-on-dark); font-size: 8px; }
+@keyframes nb-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .nb-ann__track { animation: none; } }
+
+/* --------------------------------------------------------------- header -- */
+.site-header, header#masthead, .botiga-header-container, .site-header-inner {
+  background: var(--bg-page) !important;
+  border-bottom: var(--band-border);
+  box-shadow: none !important;
+}
+.site-title, .site-title a, .custom-logo-link + .site-title,
+.beta.site-title, p.site-title {
+  font-family: var(--font-sans) !important; font-weight: var(--fw-bold) !important;
+  font-size: var(--fs-logo) !important; letter-spacing: -.01em; color: var(--text) !important;
+  white-space: nowrap; /* the wordmark never wraps; --fs-logo scales it down first */
+}
+/* menu links */
+.main-navigation a, .primary-menu-container a, ul.menu > li > a, .menu-item > a {
+  color: var(--text-muted); font-weight: var(--fw-med); font-size: var(--fs-nav);
+}
+.main-navigation a:hover, .menu-item > a:hover,
+.main-navigation .current-menu-item > a { color: var(--brand); }
+
+/* ---- the horizontal menu is the DESKTOP DEFAULT (Vic's ruling 2026-07-19;
+   supersedes this span's earlier hamburger extension) ----------------------
+   MEASURED: with the compact tokens (--fs-nav-tight 13px, --nav-gap 10px,
+   last gap 0) the full menu fits ONE line with zero collision down to
+   exactly 853px (852px collides by 1px). The nowrap flex UL makes the grid
+   redistribute: the menu track never shrinks below the menu, the logo/icon
+   columns yield, so nothing folds or overlaps at any desktop width.
+     <=852px   hamburger (genuinely narrow)       [bp:--bp-nav-floor 853px]
+     853-1024  desktop header FORCED over botiga's native 1025px split,
+               flex UL re-asserted (botiga's flex rule starts at 1025px)
+     1025-1439 desktop header (native), compact menu
+     >=1440px  full size + botiga spacing (untouched, as approved) */
+.bhfb-component-menu .menu { flex-wrap: nowrap !important; }
+.bhfb-component-menu .menu > li {
+  /* label + dropdown chevron stay side by side on one line */
+  display: inline-flex; align-items: center; white-space: nowrap;
+}
+.bhfb-component-menu .menu > li > a { white-space: nowrap; }
+@media (min-width: 853px) and (max-width: 1024px) { /* [bp:--bp-nav-floor] */
+  .bhfb-desktop { display: block !important; }
+  .bhfb-mobile  { display: none !important; }
+  .bhfb-desktop .bhfb-component-menu .menu { display: flex !important; flex-wrap: nowrap !important; }
+}
+@media (min-width: 853px) and (max-width: 1439px) { /* [bp:--bp-nav-floor .. --bp-nav-full] */
+  .main-navigation a, .primary-menu-container a, ul.menu > li > a, .menu-item > a {
+    font-size: var(--fs-nav-tight);
+  }
+  .bhfb-component-menu .menu > li { margin-right: var(--nav-gap) !important; }
+  .bhfb-component-menu .menu > li:last-child { margin-right: 0 !important; }
+}
+/* header icons (search/account/cart) */
+.botiga-header-cart a, .header-cart, .botiga-icon, .site-header .botiga-header-element svg {
+  color: var(--text) !important; fill: var(--text) !important;
+}
+.botiga-header-cart .botiga-menu-cart-count, .header-cart-count, .botiga-cart-count {
+  background: var(--brand) !important; color: #fff !important;
+}
+
+/* --------------------------------------------------------------- buttons -- */
+.nb-btn, a.nb-btn,
+.woocommerce a.button, .woocommerce button.button, .woocommerce input.button,
+.woocommerce .button, .woocommerce #respond input#submit,
+.wp-block-button__link, .wp-element-button, .wc-block-components-button,
+button.single_add_to_cart_button, .checkout-button, .wc-proceed-to-checkout a,
+.nb-add, .nb-card__row .nb-add {
+  font-family: var(--font-sans) !important;
+  font-weight: var(--fw-bold) !important;
+  border-radius: var(--r-pill) !important;
+  border: 1.5px solid transparent !important;
+  padding: 12px 26px !important;
+  line-height: 1.1 !important;
+  display: inline-block; text-align: center; cursor: pointer;
+  transition: transform var(--dur) var(--ease), background var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+/* primary (accent-filled) */
+.nb-btn--primary, .woocommerce a.button.alt, .woocommerce button.button.alt,
+.woocommerce #respond input#submit.alt, .wc-block-components-button.contained,
+button.single_add_to_cart_button, .checkout-button, .wc-proceed-to-checkout a.button,
+.nb-add, .wp-block-button__link, .wp-element-button {
+  background: var(--brand) !important; color: #fff !important; border-color: var(--brand) !important;
+}
+.nb-btn--primary:hover, .woocommerce a.button.alt:hover, button.single_add_to_cart_button:hover,
+.checkout-button:hover, .nb-add:hover, .wp-element-button:hover {
+  background: #1a45c2 !important; transform: translateY(-1px); box-shadow: var(--shadow-card);
+}
+/* ghost / secondary */
+.nb-btn--ghost, .woocommerce a.button:not(.alt), .woocommerce button.button:not(.alt) {
+  background: var(--bg-page) !important; color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+.nb-btn--ghost:hover { border-color: var(--brand) !important; color: var(--brand) !important; }
+.nb-add { padding: 9px 18px !important; font-size: 13px !important; font-weight: var(--fw-semi) !important; }
+
+/* ================================================================ HOME ==== */
+.nb-home { color: var(--text); }
+.nb-hero { background: var(--bg-band); border-bottom: var(--band-border); padding: 84px 0 72px; }
+.nb-hero__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
+.nb-hero__title { font-size: var(--fs-h1); line-height: var(--lh-h1); font-weight: var(--fw-bold); margin: 16px 0 20px; }
+.nb-ac { color: var(--brand); }
+.nb-hero__lead { color: var(--text-muted); max-width: 48ch; margin-bottom: 30px; font-size: var(--fs-lead); }
+.nb-hero__cta { display: flex; gap: 10px; flex-wrap: wrap; }
+.nb-hero__stage { display: flex; justify-content: center; }
+.nb-vialcard {
+  background: var(--bg-page); border: 1px solid var(--border); box-shadow: var(--shadow-card);
+  border-radius: var(--r-card); padding: 38px 46px 26px; text-align: center; width: 310px;
+}
+.nb-vial { width: 88px; height: 180px; margin: 0 auto 22px; }
+.nb-vial__cap { height: 24px; background: var(--c-ink); border-radius: 3px 3px 0 0; }
+.nb-vial__neck { height: 11px; background: var(--border); width: 70%; margin: 0 auto; }
+.nb-vial__glass { height: 143px; border: 2px solid var(--border); border-top: none; border-radius: 0 0 10px 10px;
+  background: linear-gradient(180deg, #fff 28%, var(--bg-band) 28%); position: relative; overflow: hidden; }
+.nb-vial__fill { position: absolute; bottom: 0; left: 0; right: 0; height: 66%; background: var(--bg-band); }
+.nb-coa { border-top: 1px dashed var(--border); padding-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; text-align: left; }
+.nb-coa div { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-muted); }
+.nb-coa b { display: block; color: var(--text); font-weight: var(--fw-med); font-size: 12px; }
+
+.nb-trust { background: var(--bg-band); border-bottom: var(--band-border); }
+.nb-trust__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 20px 0; text-align: center; }
+.nb-trust__grid b { font-size: 15px; display: block; color: var(--text); }
+.nb-trust__grid small { color: var(--text-muted); font-size: 12.5px; }
+
+.nb-cat { padding: 76px 0 84px; }
+.nb-sechead { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 34px; }
+.nb-sechead h2 { font-size: var(--fs-h2); font-weight: var(--fw-bold); letter-spacing: var(--ls-h2); }
+.nb-sechead span { font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--text-muted); text-transform: uppercase; }
+.nb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.nb-card { background: var(--bg-page); border: 1px solid var(--border); box-shadow: var(--shadow-card); border-radius: var(--r-card); padding: 26px; }
+.nb-card__media { aspect-ratio: var(--img-aspect); background: var(--img-band); border: var(--img-border); border-radius: var(--img-radius); overflow: hidden; margin-bottom: var(--img-gap); }
+.nb-card__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.nb-card__cat { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .08em; }
+.nb-card__name { font-size: var(--fs-h3); font-weight: var(--fw-bold); margin: 9px 0 3px; }
+.nb-card__purity { font-family: var(--font-mono); font-size: 12px; color: var(--brand); margin-bottom: 18px; }
+.nb-card__row { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 15px; margin-top: 15px; }
+.nb-card__price { font-weight: var(--fw-bold); font-size: 19px; }
+.nb-card__price .woocommerce-Price-amount { font-weight: var(--fw-bold); }
+.nb-cat__more { text-align: center; margin-top: 40px; }
+
+/* ========================================================= WOOCOMMERCE ==== */
+/* ---- product image frames (Banded Azure) --------------------------------
+   Every product surface HOLDS an image. img/placeholder.svg fills the frame
+   until real brand media is uploaded (swap H3 -> a pure drop-in, no redesign).
+   One consistent aspect / radius / border / band across all four surfaces. */
+
+/* shop loop: framed thumbnail on top of each card (real thumb OR placeholder) */
+.woocommerce ul.products li.product .loop-image-wrap img,
+.woocommerce ul.products li.product img.wp-post-image {
+  display: block !important; width: 100%; height: auto; margin: 0;
+  aspect-ratio: var(--img-aspect); object-fit: cover;
+  background: var(--img-band); border: var(--img-border); border-radius: var(--img-radius);
+}
+
+/* single product: framed gallery image, a column beside the summary */
+.woocommerce div.product .woocommerce-product-gallery {
+  float: left; width: 44%; margin: 0 0 40px; opacity: 1 !important;
+}
+.woocommerce div.product .woocommerce-product-gallery__wrapper,
+.woocommerce div.product .woocommerce-product-gallery__image,
+.woocommerce div.product .woocommerce-product-gallery__image--placeholder { margin: 0; }
+.woocommerce div.product .woocommerce-product-gallery img {
+  display: block; width: 100%; height: auto; margin: 0;
+  aspect-ratio: var(--img-aspect); object-fit: cover;
+  background: var(--img-band); border: var(--img-border);
+  border-radius: var(--img-radius); box-shadow: var(--img-shadow);
+}
+.woocommerce div.product .woocommerce-tabs,
+.woocommerce div.product .related,
+.woocommerce div.product .upsells { clear: both; }
+
+/* cart + checkout block line thumbnails: small framed square */
+.wc-block-cart-item__image, .wc-block-components-order-summary-item__image {
+  width: var(--img-thumb) !important; height: var(--img-thumb) !important;
+}
+.wc-block-cart-item__image img,
+.wc-block-components-order-summary-item__image img,
+td.product-thumbnail img {
+  display: block !important; width: var(--img-thumb); height: var(--img-thumb);
+  object-fit: cover; background: var(--img-band);
+  border: var(--img-border); border-radius: var(--img-radius);
+}
+
+/* shop band header */
+.woocommerce .woocommerce-products-header,
+.woocommerce-page .woocommerce-products-header { background: var(--bg-band); border-bottom: var(--band-border); padding: 40px 0; margin-bottom: 40px; }
+.woocommerce-products-header__title, .woocommerce .page-title { font-size: var(--fs-h2); }
+
+/* shop product cards -> Azure text card */
+.woocommerce ul.products { gap: 20px; display: grid !important; grid-template-columns: repeat(3, 1fr); }
+.woocommerce ul.products li.product {
+  background: var(--bg-page); border: 1px solid var(--border); box-shadow: var(--shadow-card);
+  border-radius: var(--r-card); padding: 26px !important; margin: 0 !important; width: auto !important; float: none !important; text-align: left;
+  display: flex !important; flex-direction: column; align-items: flex-start;
+}
+/* the image + title link and its wrap span the full card width (flex-start column) */
+.woocommerce ul.products li.product > a.woocommerce-LoopProduct-link,
+.woocommerce ul.products li.product a.woocommerce-loop-product__link,
+.woocommerce ul.products li.product .loop-image-wrap { display: block !important; width: 100%; align-self: stretch; }
+.woocommerce ul.products li.product .woocommerce-loop-product__title { font-size: var(--fs-h3); padding: 0; margin: 6px 0 4px; }
+.woocommerce ul.products li.product .price { color: var(--text) !important; font-weight: var(--fw-bold); font-size: 19px; }
+.woocommerce ul.products li.product .price del { color: var(--text-muted); font-weight: var(--fw-reg); }
+.nb-card-size { font-family: var(--font-mono); font-size: 12px; color: var(--brand); margin: 2px 0 12px; }
+.woocommerce ul.products li.product .button { margin-top: 10px; }
+
+/* single product -> summary full width, Azure */
+.woocommerce div.product { display: block; }
+.woocommerce div.product .summary.entry-summary { width: 52% !important; float: right !important; max-width: none; margin: 0; }
+.woocommerce div.product .product_title { font-size: clamp(30px, 4vw, 44px); }
+.woocommerce div.product p.price, .woocommerce div.product span.price { color: var(--text); font-weight: var(--fw-bold); font-size: 26px; }
+.woocommerce div.product form.cart { margin: 24px 0; }
+.woocommerce div.product .woocommerce-tabs ul.tabs li { border-radius: var(--r-pill); border: 1px solid var(--border); background: var(--bg-band); }
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active { background: var(--brand); }
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active a { color: #fff; }
+
+/* cart -> Azure */
+.woocommerce table.shop_table { border: 1px solid var(--border); border-radius: var(--r-card); overflow: hidden; }
+.woocommerce table.shop_table thead th, .woocommerce table.cart th { background: var(--bg-band); color: var(--text); border-bottom: var(--band-border); }
+.woocommerce table.shop_table td { border-top: 1px solid var(--border); }
+.woocommerce .cart-collaterals .cart_totals, .woocommerce-cart .cart-collaterals .cart_totals {
+  border: 1px solid var(--border); border-radius: var(--r-card); padding: 24px; box-shadow: var(--shadow-card); }
+.woocommerce .cart_totals h2 { font-size: var(--fs-h3); }
+
+/* checkout -> Azure */
+.nb-checkout-notice { margin: 0 0 1.5em; padding: 1em 1.25em; border: 1px solid var(--brand); border-radius: var(--r-input); background: var(--bg-band); color: var(--text); font-weight: var(--fw-med); }
+.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea, .woocommerce form .form-row select,
+.wc-block-components-text-input input, .select2-container--default .select2-selection--single {
+  border: 1px solid var(--border) !important; border-radius: var(--r-input) !important; padding: 12px 14px !important; background: var(--bg-page); }
+.woocommerce form .form-row input.input-text:focus, .wc-block-components-text-input input:focus {
+  border-color: var(--brand) !important; outline: none; box-shadow: 0 0 0 3px rgba(29,78,216,.12); }
+.woocommerce-checkout #order_review, .woocommerce-checkout .woocommerce-checkout-review-order,
+.wc-block-components-sidebar { border: 1px solid var(--border); border-radius: var(--r-card); padding: 24px; box-shadow: var(--shadow-card); background: var(--bg-page); }
+.woocommerce-checkout h3, .wc-block-components-checkout-step__title { font-size: var(--fs-h3); }
+
+/* ---------------------------------------------------------------- footer -- */
+/* hide the empty botiga builder footer; render our own */
+.site-footer .footer-widgets, .botiga-footer-builder, footer#colophon .site-info { display: none !important; }
+.nb-footer { background: var(--bg-page); border-top: var(--band-border); color: var(--text-muted); font-size: var(--fs-small); }
+.nb-footer__inner { max-width: var(--wrap); margin: 0 auto; padding: 56px var(--gutter) 32px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 40px; }
+.nb-footer__wordmark { font-family: var(--font-sans); font-weight: var(--fw-x); font-size: 22px; color: var(--text); letter-spacing: -.01em; }
+.nb-footer__wordmark span { color: var(--brand); }
+.nb-footer__tagline { margin: 12px 0 8px; }
+.nb-footer__trust { font-family: var(--font-mono); font-size: 11.5px; color: var(--text-muted); }
+.nb-footer__heading { font-size: 13px; font-weight: var(--fw-bold); color: var(--text); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px; }
+.nb-footer__col ul { list-style: none; margin: 0; padding: 0; }
+.nb-footer__col li { margin-bottom: 9px; }
+.nb-footer__col a:hover { color: var(--brand); }
+.nb-footer__email { color: var(--brand); font-weight: var(--fw-semi); display: inline-block; margin-top: 8px; }
+.nb-footer__bottom { border-top: var(--band-border); text-align: center; padding: 20px var(--gutter); font-size: 12px; color: var(--text-muted); }
+.nb-footer__bottom p { margin: 2px 0; color: var(--text-muted); }
+
+/* ------------------------------------------------- polish / integration -- */
+/* header LOGO: no CSS hide. functions.php drops a custom-logo id whose FILE
+   is missing (theme_mod_custom_logo filter), so no broken <img> can render or
+   be fetched, and the REAL logo shows untouched when it lands (swap A2). */
+.site-branding .site-title, p.site-title, h1.site-title { display: block !important; }
+
+/* botiga builder footer ("© … powered by Botiga") — we render nb-footer instead */
+.bhfb-footer, footer.bhfb-footer, .bhfb-component-copyright { display: none !important; }
+
+/* shop: neutralise the now-empty products-header band box */
+.woocommerce .woocommerce-products-header,
+.woocommerce-page .woocommerce-products-header {
+  background: transparent; border: 0; padding: 0; margin: 0 0 24px;
+}
+
+/* shop cards: left-aligned; framed image on top; persistent Add pill pinned bottom */
+.woocommerce ul.products li.product,
+.woocommerce ul.products li.product * { text-align: left; }
+.woocommerce ul.products li.product .price { text-align: left; }
+.woocommerce ul.products li.product { position: relative; padding-bottom: 74px !important; }
+/* image wrap flows at the top of the card (the frame lives on the img above) */
+.woocommerce ul.products li.product .loop-image-wrap {
+  position: static !important; display: block !important;
+  min-height: 0 !important; height: auto !important; background: none !important;
+  box-shadow: none !important; padding: 0 !important; margin: 0 0 var(--img-gap) !important;
+}
+/* botiga's layout3 add-to-cart overlay -> a persistent pill pinned to the card bottom */
+.woocommerce ul.products li.product .loop-button-wrap {
+  position: absolute !important; left: 26px; right: 26px; bottom: 26px;
+  opacity: 1 !important; visibility: visible !important; transform: none !important;
+  display: block !important; margin: 0 !important; inset: auto 26px 26px 26px !important; text-align: left !important;
+}
+/* shop/related add-to-cart -> filled blue pill (matches homepage cards) */
+.woocommerce ul.products li.product .button.add_to_cart_button {
+  position: static !important; opacity: 1 !important; visibility: visible !important; display: inline-block !important; transform: none !important;
+  background: var(--brand) !important; color: #fff !important; border-color: var(--brand) !important;
+}
+.woocommerce ul.products li.product .button.add_to_cart_button:hover { background: #1a45c2 !important; }
+
+/* peptidestore-core product trust list: compact row, small icons (plugin output, styled not touched) */
+.woocommerce div.product .psc-trust, ul.psc-trust {
+  list-style: none; margin: 22px 0; padding: 18px 0; display: flex; flex-direction: column; gap: 12px;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); max-width: 760px;
+}
+ul.psc-trust li.psc-trust__item {
+  display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); margin: 0; list-style: none;
+}
+.psc-trust__icon { width: 20px !important; height: 20px !important; flex: 0 0 20px; color: var(--brand); }
+.psc-trust__dot { width: 9px; height: 9px; border-radius: 50%; background: #16a34a; display: inline-block; }
+
+/* peptidestore category badge -> azure pill */
+.psc-cat-badge {
+  display: inline-block; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--brand); background: var(--bg-band);
+  border: 1px solid var(--border); border-radius: var(--r-pill); padding: 4px 12px;
+}
+
+/* COA CERTIFICATE image (a document scan, NOT product imagery): the plugin's
+   Certificate-of-Analysis image points at pruned media, so hide the broken
+   <img> and keep the COA heading/text. Real COA scans are a separate swap,
+   not part of the product-image drop-in (H3). */
+.psc-coa-image, .psc-coa-image img { display: none !important; }
+
+/* ------------------------------------------------------------ responsive -- */
+@media (max-width: 900px) { /* [bp:--bp-tablet] */
+  .nb-hero__grid { grid-template-columns: 1fr; gap: 36px; }
+  .nb-grid, .woocommerce ul.products { grid-template-columns: repeat(2, 1fr) !important; }
+  .nb-footer__inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) { /* [bp:--bp-phone] */
+  .nb-grid, .woocommerce ul.products, .nb-trust__grid { grid-template-columns: 1fr !important; }
+  .nb-footer__inner { grid-template-columns: 1fr; }
+  /* single product: stack the gallery over the summary (the 44/52 float is
+     too narrow for a phone) */
+  .woocommerce div.product .woocommerce-product-gallery,
+  .woocommerce div.product .summary.entry-summary {
+    float: none !important; width: 100% !important;
+  }
+  .woocommerce div.product .woocommerce-product-gallery { margin-bottom: 24px; }
+  /* section head: count line stacks under the heading instead of squeezing */
+  .nb-sechead { flex-direction: column; align-items: flex-start; gap: 4px; }
+}

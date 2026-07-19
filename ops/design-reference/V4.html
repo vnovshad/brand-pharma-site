@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>V4 — Banded Azure · BRAND</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#FFFFFF;color:#0F172A;font-family:'Manrope',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.tagbar{background:#0F172A;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;padding:8px 0;text-align:center}
+.tagbar b{color:#9DC1FF}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#1D4ED8}
+.mono-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;color:#1D4ED8}
+nav{background:#FFFFFF;border-bottom:1px solid #DBEAFE}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{font-family:'Manrope',sans-serif;font-weight:700;font-size:21px;letter-spacing:-.01em}
+.logo span{color:#1D4ED8}
+.nav-links{display:flex;gap:28px;font-size:14px;font-weight:500;color:#64748B}
+.cartbtn{font-size:13px;font-weight:600;border:1.5px solid #0F172A;padding:9px 18px;border-radius:99px}
+.hero{padding:84px 0 72px;background:#EFF6FF;color:#0F172A;border-bottom:1px solid #DBEAFE}
+.hero.centered{padding:96px 0}
+.hgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.hero h1{font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(38px,4.8vw,58px);line-height:1.06;letter-spacing:-.02em;margin:16px 0 20px}
+.hero .ac{color:#1D4ED8}
+.hero p{color:#64748B;max-width:48ch;margin-bottom:30px}
+.hero.centered p{margin:0 auto 30px}
+.btn{font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;padding:14px 28px;border-radius:99px;display:inline-block}
+.btn.primary{background:#1D4ED8;color:#FFFFFF}
+.btn.ghost{border:1.5px solid #DBEAFE;margin-left:10px;color:#0F172A}
+.vstage{display:flex;justify-content:center}
+.vial-card{background:#FFFFFF;border:1px solid #DBEAFE;box-shadow:0 10px 30px rgba(15,23,42,.06);border-radius:14px;padding:38px 46px 26px;text-align:center;width:310px;color:#0F172A}
+.vial{width:88px;height:180px;margin:0 auto 22px}
+.vial .cap{height:24px;background:#0F172A;border-radius:3px 3px 0 0}
+.vial .neck{height:11px;background:#DBEAFE;width:70%;margin:0 auto}
+.vial .glass{height:143px;border:2px solid #DBEAFE;border-top:none;border-radius:0 0 10px 10px;background:linear-gradient(180deg,#FFFFFF 28%,#EFF6FF 28%);position:relative;overflow:hidden}
+.vial .fill{position:absolute;bottom:0;left:0;right:0;height:66%;background:#EFF6FF}
+.coa{border-top:1px dashed #DBEAFE;padding-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:6px;text-align:left}
+.coa div{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#64748B}
+.coa b{display:block;color:#0F172A;font-weight:500;font-size:12px}
+.trust{background:#EFF6FF;border-bottom:1px solid #DBEAFE}
+.trust-in{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:20px 0;text-align:center}
+.trust-in b{font-family:'Manrope',sans-serif;font-size:15px;display:block;color:#0F172A}
+.trust-in small{color:#64748B;font-size:12.5px}
+.catalogue{padding:76px 0 84px}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:34px}
+.sec-head h2{font-family:'Manrope',sans-serif;font-weight:700;font-size:32px;letter-spacing:-.015em}
+.sec-head span{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#64748B}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#FFFFFF;border:1px solid #DBEAFE;box-shadow:0 10px 30px rgba(15,23,42,.06);border-radius:14px;padding:26px}
+.card .cat{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#64748B;text-transform:uppercase;letter-spacing:.08em}
+.card h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:22px;margin:9px 0 3px}
+.card .purity{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#1D4ED8;margin-bottom:18px}
+.card .row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #DBEAFE;padding-top:15px;margin-top:15px}
+.card .price{font-family:'Manrope',sans-serif;font-weight:700;font-size:19px}
+.card .price small{font-size:12px;color:#64748B;font-weight:500}
+.add{font-size:13px;font-weight:600;color:#fff;background:#1D4ED8;padding:9px 18px;border-radius:99px}
+footer{border-top:1px solid #DBEAFE;padding:36px 0;color:#64748B;font-size:13px;text-align:center}
+</style></head><body>
+<div class="tagbar">V4 · <b>BANDED AZURE</b> · White with light-blue section bands. Pill shapes.</div>
+<nav><div class="wrap nav-in">
+<a class="logo" href="#">BRAND<span>.</span></a>
+<div class="nav-links"><a href="#">Catalogue</a><a href="#">Testing</a><a href="#">Shipping</a><a href="#">Contact</a></div>
+<a class="cartbtn" href="#">Cart · 0</a></div></nav>
+<header class="hero band"><div class="wrap hgrid"><div>
+      <div class="eyebrow">RESEARCH PEPTIDES · MADE IN CANADA</div>
+      <h1>Pharmaceutical-grade purity, <span class="ac">proven every batch.</span></h1>
+      <p>Research compounds with third-party HPLC-MS verification published for every lot. Synthesized, tested, and shipped from our Canadian facility.</p>
+      <div class="cta"><a class="btn primary" href="#">Browse catalogue</a>
+      <a class="btn ghost" href="#">View lab reports</a></div></div><div class="vstage">
+    <div class="vial-card">
+      <div class="vial"><div class="cap"></div><div class="neck"></div>
+        <div class="glass"><div class="fill"></div></div></div>
+      <div class="coa">
+        <div><b>BPC-157</b>Compound</div><div><b>99.2%</b>Purity, HPLC</div>
+        <div><b>10 mg</b>Fill mass</div><div><b>#B-0417</b>Batch</div>
+      </div>
+    </div></div></div></header>
+<section class="trust"><div class="wrap trust-in">
+<div><b>HPLC-MS tested</b><small>Every batch, third-party verified</small></div>
+<div><b>Made in Canada</b><small>Synthesized and shipped domestically</small></div>
+<div><b>Discreet shipping</b><small>Tracked, 24 h dispatch</small></div>
+</div></section>
+<section class="catalogue"><div class="wrap">
+<div class="sec-head"><h2>Catalogue</h2><span>18 COMPOUNDS · ALL IN STOCK</span></div>
+<div class="grid">
+        <div class="card"><div class="cat">Recovery</div><h3>BPC-157</h3>
+        <div class="purity">99.2% · HPLC VERIFIED</div>
+        <div class="row"><div class="price">$62 <small>/ 10 mg</small></div>
+        <a class="add" href="#">Add</a></div></div>
+        <div class="card"><div class="cat">Recovery</div><h3>TB-500</h3>
+        <div class="purity">99.0% · HPLC VERIFIED</div>
+        <div class="row"><div class="price">$74 <small>/ 10 mg</small></div>
+        <a class="add" href="#">Add</a></div></div>
+        <div class="card"><div class="cat">Metabolic</div><h3>Tirzepatide</h3>
+        <div class="purity">99.4% · HPLC VERIFIED</div>
+        <div class="row"><div class="price">$189 <small>/ 15 mg</small></div>
+        <a class="add" href="#">Add</a></div></div>
+        <div class="card"><div class="cat">Metabolic</div><h3>Semaglutide</h3>
+        <div class="purity">99.1% · HPLC VERIFIED</div>
+        <div class="row"><div class="price">$139 <small>/ 10 mg</small></div>
+        <a class="add" href="#">Add</a></div></div>
+        <div class="card"><div class="cat">Growth</div><h3>Tesamorelin</h3>
+        <div class="purity">99.3% · HPLC VERIFIED</div>
+        <div class="row"><div class="price">$96 <small>/ 10 mg</small></div>
+        <a class="add" href="#">Add</a></div></div>
+        <div class="card"><div class="cat">Cosmetic</div><h3>GHK-Cu</h3>
+        <div class="purity">99.5% · HPLC VERIFIED</div>
+        <div class="row"><div class="price">$54 <small>/ 50 mg</small></div>
+        <a class="add" href="#">Add</a></div></div></div>
+</div></section>
+<footer>BRAND · For research purposes only · © 2026</footer>
+</body></html>

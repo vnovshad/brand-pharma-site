@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36" role="img" aria-label="Interac e-Transfer">
+  <rect width="36" height="36" rx="9" fill="#336AAD"/>
+  <rect x="8" y="12" width="20" height="13" rx="2.5" fill="#ffffff"/>
+  <path d="M9.2 13.6 L18 20 L26.8 13.6" fill="none" stroke="#336AAD" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="27" cy="11" r="6.2" fill="#E2342D"/>
+  <text x="27" y="14.4" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">$</text>
+</svg>

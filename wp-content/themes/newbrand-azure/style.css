@@ -1,0 +1,12 @@
+/*
+Theme Name: NewBrand Azure
+Theme URI: https://store.emilycooke.ca
+Description: Banded Azure design system (V4) for the NewBrand research-peptide store. Token-driven child of Botiga: colors, type, spacing and banding live in tokens.css so a re-skin inside the family is a small edit. Functional layer stays in the peptidestore-core plugin.
+Template: botiga
+Author: NewBrand
+Version: 0.1.3
+Text Domain: newbrand-azure
+*/
+
+/* Component styling is split out: tokens.css (design tokens) + azure.css
+   (components). Both are enqueued from functions.php after the parent style. */

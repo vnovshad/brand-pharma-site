@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Product image">
+  <!-- Neutral in-design placeholder: V4 Banded Azure vial glyph on the azure ground.
+       Sits in the same image frame that real brand product photos drop into later. -->
+  <rect width="600" height="600" fill="#EFF6FF"/>
+  <g>
+    <clipPath id="nbGlass"><rect x="216" y="208" width="168" height="252" rx="18"/></clipPath>
+    <!-- glass body -->
+    <rect x="216" y="208" width="168" height="252" rx="18" fill="#FFFFFF"/>
+    <!-- liquid fill -->
+    <rect x="216" y="338" width="168" height="122" fill="#E3EEFF" clip-path="url(#nbGlass)"/>
+    <!-- meniscus line -->
+    <rect x="216" y="338" width="168" height="3" fill="#C6DBF5" clip-path="url(#nbGlass)"/>
+    <!-- glass outline -->
+    <rect x="216" y="208" width="168" height="252" rx="18" fill="none" stroke="#C6DBF5" stroke-width="4"/>
+    <!-- neck -->
+    <rect x="247" y="186" width="106" height="24" fill="#DBEAFE"/>
+    <!-- cap -->
+    <rect x="225" y="140" width="150" height="48" rx="8" fill="#0F172A"/>
+  </g>
+</svg>

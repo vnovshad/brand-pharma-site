@@ -1,0 +1,26 @@
+# Brand Pharma site repo. First-party code only.
+# Strategy: ignore everything, then re-include only the first-party deliverables
+# (the custom theme, the custom plugin, and ops). WordPress core, third-party
+# plugins and themes, secrets, and runtime state are never re-included, so they
+# can never be tracked.
+/*
+!/.gitignore
+!/ops/
+!/wp-content/
+/wp-content/*
+!/wp-content/plugins/
+/wp-content/plugins/*
+!/wp-content/plugins/peptidestore-core/
+!/wp-content/themes/
+/wp-content/themes/*
+!/wp-content/themes/newbrand-azure/
+# hard safety net (last-match wins): never track secrets or runtime, even if re-included above
+wp-config.php
+**/wp-config.php
+.user.ini
+**/.user.ini
+wordfence-waf.php
+*.log
+*.sql
+*.sql.gz
+.DS_Store

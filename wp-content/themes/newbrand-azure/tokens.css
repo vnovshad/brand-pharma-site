@@ -1,0 +1,97 @@
+/* ============================================================================
+   NewBrand Azure — DESIGN TOKENS (the single source of truth)
+   Variation family: V4 "Banded Azure" (white base, light-blue section bands,
+   pill shapes, Manrope + IBM Plex Mono). To re-skin to another variation in the
+   same family, edit the values here only — components (azure.css) reference
+   these tokens exclusively and never hardcode a colour, size, or radius.
+   ========================================================================== */
+:root {
+  /* ---- palette (raw, from V4.html) ---- */
+  --c-white:        #FFFFFF;
+  --c-ink:          #0F172A;   /* headings, dark chrome (tagbar) */
+  --c-muted:        #64748B;   /* secondary text */
+  --c-accent:       #1D4ED8;   /* primary blue */
+  --c-accent-soft:  #9DC1FF;   /* light-blue accent (on dark) */
+  --c-band:         #EFF6FF;   /* light-blue section band */
+  --c-line:         #DBEAFE;   /* hairline borders */
+
+  /* ---- semantic ---- */
+  --bg-page:        var(--c-white);
+  --bg-band:        var(--c-band);
+  --bg-ink:         var(--c-ink);
+  --text:           var(--c-ink);
+  --text-muted:     var(--c-muted);
+  --brand:          var(--c-accent);
+  --brand-on-dark:  var(--c-accent-soft);
+  --border:         var(--c-line);
+
+  /* ---- type ---- */
+  --font-sans: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --fs-body: 16px;      --lh-body: 1.6;
+  --fs-h1: clamp(38px, 4.8vw, 58px); --lh-h1: 1.06;
+  --fs-h2: 32px;        --fs-h3: 22px;
+  --fs-lead: 17px;      --fs-small: 13px;
+  --fs-eyebrow: 12.5px; --fs-mono: 12px;
+  --ls-tight: -.02em;   --ls-h2: -.015em;
+  --ls-eyebrow: .13em;  --ls-mono: .05em;
+  --fw-reg: 400; --fw-med: 500; --fw-semi: 600; --fw-bold: 700; --fw-x: 800;
+
+  /* ---- layout / spacing ---- */
+  --wrap: 1200px;
+  --gutter: 32px;
+  --sp-1: 6px; --sp-2: 10px; --sp-3: 16px; --sp-4: 20px;
+  --sp-5: 26px; --sp-6: 32px; --sp-8: 48px; --sp-10: 64px;
+  --sp-section: 76px;
+
+  /* ---- radius ---- */
+  --r-card: 14px;
+  --r-pill: 99px;
+  --r-input: 10px;
+
+  /* ---- elevation ---- */
+  --shadow-card: 0 10px 30px rgba(15, 23, 42, .06);
+  --shadow-pop:  0 16px 40px rgba(15, 23, 42, .10);
+
+  /* ---- banding ---- */
+  --band-border: 1px solid var(--c-line);
+
+  /* ---- product image frame (Banded Azure) ----
+     One consistent frame for every product image across shop loop, single
+     gallery, cart and checkout. Holds a neutral in-design placeholder now
+     (img/placeholder.svg) and real brand images later, with no redesign. */
+  --img-aspect:  1 / 1;                  /* consistent square frame */
+  --img-radius:  10px;                   /* frame corner radius */
+  --img-band:    var(--c-band);          /* soft-azure ground behind the image */
+  --img-border:  1px solid var(--c-line);/* hairline that matches the cards */
+  --img-shadow:  var(--shadow-card);     /* elevation for the prominent frames */
+  --img-thumb:   64px;                   /* cart / checkout line thumbnail size */
+  --img-gap:     16px;                   /* space under a framed image */
+
+  /* ---- motion ---- */
+  --ease: cubic-bezier(.2, .6, .2, 1);
+  --dur: .18s;
+
+  /* ---- responsive: site title + nav (QA span 2026-07-19, floor re-measured
+          per Vic's ruling: horizontal menu is the DESKTOP DEFAULT) ---- */
+  --fs-logo: clamp(16px, 4.2vw, 21px); /* fluid site-title; never wraps */
+  --fs-nav: 14px;        /* menu link size at full width (>=1440, botiga spacing) */
+  --fs-nav-tight: 13px;  /* menu link size in the compact band (853-1439) */
+  --nav-gap: 10px;       /* inter-item gap in the compact band (botiga default 35px) */
+
+  /* ---- breakpoints (canonical values) ----
+     CSS @media cannot read var(), so these tokens are the SINGLE SOURCE for
+     the values; every @media in azure.css carries a [bp:<name>] comment and
+     must match the value here. Change them here first, then sync azure.css.
+     --bp-phone:     560px   single-column floor (grids, product stack)
+     --bp-tablet:    900px   two-column band
+     --bp-nav-floor: 853px   MEASURED one-line floor of the full menu at the
+                             compact tokens (fs 13 / gap 10 / last gap 0):
+                             at 853px menu-to-logo clearance = 0, at 852px it
+                             collides (-1px). Hamburger runs <=852px ONLY;
+                             the real horizontal menu is the default from
+                             853px up. Re-measure if menu items or fonts
+                             change (qa: newbrand/qa.mjs + a floor probe).
+     --bp-nav-full:  1440px  menu at full size/spacing from here; the band
+                             853-1439 runs the compact menu */
+}
